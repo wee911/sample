@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>事件中心</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+
+
+	<script type="text/javascript">
+
+		var EventCenter = (function(){
+
+			var events = {};
+
+			function on(evt, handler){
+				events[evt] = events[evt] || [];
+				events[evt].push({
+					handler: handler
+				});
+			}
+
+			function fire(evt, args){
+				if(!events[evt]){
+					return;
+				}
+				for(var i=0; i<events[evt].length; i++){
+					events[evt][i].handler(args);
+				}
+				
+			}
+
+			return {
+				on: on,
+				fire: fire
+			}
+		})();
+
+
+		EventCenter.on('hi', function(data){
+			console.log('hi:'+data);
+		});
+
+		EventCenter.fire('hi', ['hunger']);
+
+	</script>
+    
+</body>
+</html>
