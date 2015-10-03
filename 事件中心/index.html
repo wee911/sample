@@ -7,8 +7,13 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link href="" rel="stylesheet">
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
+
+	<input class="input1" type="text" />
+	<input class="input2" type="text" />
+	<p id="panel"></p>
 
 
 	<script type="text/javascript">
@@ -41,11 +46,26 @@
 		})();
 
 
-		EventCenter.on('hi', function(data){
-			console.log('hi:'+data);
+
+
+
+
+
+		EventCenter.on('text-change', function(data){
+			$('#panel').text(data);
 		});
 
-		EventCenter.fire('hi', ['hunger']);
+
+
+		$('.input1').on('change', function(){
+			$('#panel').text(data);
+			//EventCenter.fire('text-change', [$(this).val()]);
+		})
+
+		$('.input2').on('change', function(){
+			$('#panel').text(data);
+			//EventCenter.fire('text-change', [$(this).val()]);
+		})
 
 	</script>
     
