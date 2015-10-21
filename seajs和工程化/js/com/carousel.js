@@ -6,7 +6,7 @@
  */
 
 
-define("com/carousel", function(require) {
+define("com/carousel", function(require, exports) {
 	var $ = require('jquery');
 	var Event = require('com/event');
 
@@ -98,5 +98,6 @@ define("com/carousel", function(require) {
 
 	})();
 
-	return Carousel;
+	exports.Carousel = Carousel;
+	//return Carousel;
 });

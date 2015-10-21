@@ -20,9 +20,9 @@ define("app/index", function(require) {
 
 
 	var Exposure = require('com/exposure');
-	console.log(Exposure);
+
 	Exposure.one($('.img-cells img'), function(){
-		console.log($(this));
+
 		var $this = $(this);
 		$this.attr('src', $this.attr('data-src'));
 	});

@@ -13,7 +13,7 @@ define("com/exposure", function(require) {
 		var _queue = [];
 		var _isBind = false;
 
-		function one($selectors, callback) {
+		function one($selectors, onenter, onleave) {
 			_add('one' ,$selectors, callback);
 			_init();
 		}
@@ -75,6 +75,9 @@ define("com/exposure", function(require) {
 			_queue = arrTmp;
 		}
 
+		function _isSee($el) {
+			
+		}
 		function _isShow($el) {
 			var scrollH = $(document).scrollTop(),
 				winH = $(window).height(),
@@ -83,7 +86,8 @@ define("com/exposure", function(require) {
 		}
 
 		return {
-			one: one
+			one: one,
+			every: every
 		}
 	})();
 
