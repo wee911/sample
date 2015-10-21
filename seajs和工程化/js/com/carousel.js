@@ -98,6 +98,6 @@ define("com/carousel", function(require, exports) {
 
 	})();
 
-	exports.Carousel = Carousel;
-	//return Carousel;
+
+	return Carousel;
 });
