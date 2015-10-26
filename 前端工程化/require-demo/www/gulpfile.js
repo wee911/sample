@@ -25,6 +25,9 @@ var cssfiles = [
     './src/css/index.css'
 ];
 
+gulp.task('task-name', function(){
+    console.log('hello');
+});
 
 gulp.task('css-index', function() {
     gulp.src(cssfiles) // gulp.src("./src/css/*.css")
@@ -39,21 +42,24 @@ gulp.task('css-index', function() {
 
 
 //https://github.com/RobinThrift/gulp-requirejs
-gulp.task('js-index', function(){
-	rjs({
-	    baseUrl: "./src/js",
-	    paths: {
-	        'jquery': 'lib/bower_components/jquery/dist/jquery.min'
-	    },
-	    name: "main",
-	    out: "index.merge.min.js"
-	})
+gulp.task('js-index', function() {
+    rjs({
+        baseUrl: "./src/js",
+        paths: {
+            'jquery': 'lib/bower_components/jquery/dist/jquery.min'
+        },
+        name: "main",
+        out: "index.merge.min.js"
+    })
+    .pipe(uglify())
     .pipe(gulp.dest("./dist/js"));
 
     gulp.src("./src/js/lib/bower_components/requirejs/require.js")
-    	.pipe( uglify() )
-    	.pipe( rename({suffix: '.min'}) )
-    	.pipe( gulp.dest('./dist/js') );
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('./dist/js'));
 
 });
 
@@ -63,8 +69,8 @@ gulp.task('js-index', function(){
 // http://www.browsersync.io/docs/gulp/
 var browserSync = require('browser-sync').create();
 
-gulp.task('watch', ['js-index', 'css-index'], function(){
-	browserSync.reload();
+gulp.task('watch', ['js-index', 'css-index'], function() {
+    browserSync.reload();
 });
 
 gulp.task('server', function() {
@@ -74,12 +80,12 @@ gulp.task('server', function() {
         }
     });
 
-    gulp.watch(['./src/**/*.css','./src/**/*.js', './*.html'], ['watch']);
+    gulp.watch(['./src/**/*.css', './src/**/*.js', './*.html'], ['watch']);
 });
 
 
+gulp.task('default', ['css-index', 'js-index']);
 
-gulp.task('default', ['server']);
 
 
 
@@ -104,5 +110,3 @@ gulp.task('default', ['server']);
 // 	})
 
 // });
-
-
