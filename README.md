@@ -1,6 +1,6 @@
 # 课程练习代码
 
-代码可在[github](https://github.com/jirengu/sample)下载，也可直接在在线[demo](http://example.coding.io/)页面查看源码查看!!
+代码可在[github](https://github.com/jirengu/sample)下载，也可直接在在线[demo](http://example.coding.io/)页面查看源码查看!!!
 
 
 
