@@ -1,7 +1,9 @@
 # 课程练习代码
 
-代码可在[github](https://github.com/jirengu/sample)下载，也可直接在在线[demo](http://example.coding.io/)页面查看源代码查看
+代码可在[github](https://github.com/jirengu/sample)下载，也可直接在在线[demo](http://example.coding.io/)页面查看源码查看!!!!!
+++
 
+  
 ## 下雨特效
 [代码1-未封装](./下雨组件/rainDrop.html) 
 
@@ -41,3 +43,5 @@
 [代码1-双飞翼布局](./布局/双飞翼布局.html)
 
 [代码2-圣杯布局](./布局/圣杯布局.html)
+
+
