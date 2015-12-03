@@ -40,9 +40,9 @@ var Util = {
       return Object.keys(obj).length > 0;
     }
     for (var prop in obj) {
-      if (obj.hasOwnProperty(prop)) {
+      // if (obj.hasOwnProperty(prop)) {
         return false;
-      }
+      // }
     }
     return true;
   },
@@ -158,6 +158,7 @@ var Util = {
         arr.splice(i, 1);
       } else {
         map[arr[i]] = 1;
+        i--;
       }
     }
     return arr;
@@ -336,7 +337,7 @@ var Util = {
         } else {
           success(xmlhttp.responseText);
         }
-      }else if(xmlhttp.status === 404){
+      } else if (xmlhttp.status === 404) {
         error();
       }
     };
