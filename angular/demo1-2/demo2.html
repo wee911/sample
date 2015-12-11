@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app="gemStore">
+	<head>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<script src="../bower_components/angular/angular.min.js"></script>
+		<script src="app.js"></script>	
+	</head>
+	<body ng-controller="StoreController as store">
+		<div class="product row">
+			<h3>
+				{{store.product.name}}
+				<em class="pull-right">{{store.product.price}}</em>
+			</h3>
+		</div>
+	</body>
+</html>
