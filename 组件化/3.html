@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>简单的封装</title>
+		<title>对象</title>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -86,18 +86,29 @@
 		
 		<script type="text/javascript">
 
-		var Carousel = {
-			init: function($carousel){
-				this.$carousel = $carousel;
-				var $ct = this.$ct = $carousel.find('.img-ct');
-				this.$pre = $carousel.find('.pre');
-				this.$next = $carousel.find('.next');
-				this.imgWidth = $ct.find('li').width();
-				this.imgSize = $ct.find('li').size();
+		function People( name ){
+			this.name = name;
+		}
+		People.prototype.age = 100;
 
-				$ct.css('width', this.imgWidth * this.imgSize);
-				this.bind();
-			},
+		var p = new People('hunger');
+		var p2 = new People('valley');
+
+
+
+		function Carousel($carousel){
+			this.$carousel = $carousel;
+			var $ct = this.$ct = $carousel.find('.img-ct');
+			this.$pre = $carousel.find('.pre');
+			this.$next = $carousel.find('.next');
+			this.imgWidth = $ct.find('li').width();
+			this.imgSize = $ct.find('li').size();
+
+			$ct.css('width', this.imgWidth * this.imgSize);
+			this.bind();
+		}
+
+		Carousel.prototype = {
 
 			bind: function(){
 				var _this = this;
@@ -124,12 +135,13 @@
 			}
 		};
 
-
-		Carousel.init($('#c1'));
-		//Carousel.init($('#c2'));
-
-
+		// var c1 = new Carousel($('#c1'));
+		// var c2 = new Carousel($('#c2'));
 		
+		$('.carousel').each(function(){
+			new Carousel($(this));
+		});
+
 		</script>
 	</body>
 </html>
